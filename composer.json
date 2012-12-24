@@ -1,0 +1,10 @@
+{
+    "require": {
+        "Respect/Validation": "dev-develop",
+        "Respect/Rest": "dev-develop"
+    },
+    "autoload": {
+        "psr-0": {
+            "" : "src/" }
+    }
+}
