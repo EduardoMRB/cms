@@ -1,7 +1,8 @@
 {
     "require": {
         "Respect/Validation": "dev-develop",
-        "Respect/Rest": "dev-develop"
+        "Respect/Rest": "dev-develop",
+        "Respect/Config": "dev-develop"
     },
     "autoload": {
         "psr-0": {

@@ -2,7 +2,7 @@
 namespace Users\Entity;
 
 use \InvalidArgumentException as Argument;
-use \Respect\Validation\Validator as v;
+use \Respect\Validation\Validator as V;
 
 class User
 {
@@ -27,7 +27,7 @@ class User
 
     public function setEmail($email)
     {
-        if (! v::email()->validate($email)) {
+        if (! V::email()->validate($email)) {
             throw new Argument('Email invalido');
         }
 

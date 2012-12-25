@@ -73,4 +73,24 @@ class DataAccess
 
         return $user;
     }
+
+    public function getAll()
+    {
+        $stm = $this->pdo->prepare('
+            SELECT
+                id,
+                name,
+                email,
+                password
+            FROM
+                user
+        ');
+        $stm->setFetchMode(PDO::FETCH_CLASS, 'Users\Entity\User');
+
+        if ($stm->execute()) {
+            return $stm->fetchAll();
+        }
+
+        throw new \RuntimeException ('Fail to retrieve users');
+    }
 }

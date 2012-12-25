@@ -97,4 +97,29 @@ class DataAccessTest extends \PHPUnit_Framework_TestCase
         $dataAccess = new DataAccess($this->pdo);
         $dataAccess->getById(-1);
     }
+
+    public function testAllUsersIsReturned()
+    {
+        $user2Insert = new User();
+        $user2Insert->setName('Eduardo')
+                    ->setEmail('eduardomrb@gmail.com')
+                    ->setPassword('asdzxc');
+
+        $user2Insert2 = new User();
+        $user2Insert2->setName('LOlz')
+            ->setEmail('leowlz@gmail.com')
+            ->setPassword('asdzxc');
+
+        $dataAcces = new DataAccess($this->pdo);
+
+        $dataAcces->insert($user2Insert);
+        $dataAcces->insert($user2Insert2);
+
+        $result = $dataAcces->getAll();
+
+        $this->assertInstanceOf(
+            'Users\Entity\User',
+            $result[0]
+        );
+    }
 }
