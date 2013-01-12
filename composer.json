@@ -2,7 +2,8 @@
     "require": {
         "Respect/Validation": "dev-develop",
         "Respect/Rest": "dev-develop",
-        "Respect/Config": "dev-develop"
+        "Respect/Config": "dev-develop",
+        "squizlabs/php_codesniffer": "dev-master"
     },
     "autoload": {
         "psr-0": {

@@ -4,9 +4,16 @@ namespace Users;
 use Users\Entity\User;
 use Users\DataAccess\DataAccess;
 
+/**
+ *
+ */
 class Users
 {
+    /**
+     * @var DataAccess\DataAccess
+     */
     protected $dataAccess;
+
 
     public function __construct(DataAccess $data)
     {
@@ -27,15 +34,22 @@ class Users
             if (count($_POST) === count($post)) {
                 $user = new User();
                 $user->setName($post['name'])
-                     ->setEmail($post['email'])
-                     ->setPassword($post['password']);
+                    ->setEmail($post['email'])
+                    ->setPassword($post['password']);
 
                 return $this->create($user);
             }
-            throw new \UnexpectedValueException ('Unexpected post data');
+            throw new \UnexpectedValueException('Unexpected post data');
         }
     }
 
+    /**
+     * Insert user
+     *
+     * @param Entity\User $user User Instance
+     *
+     * @return int
+     */
     public function create(User $user)
     {
         return $this->dataAccess->insert($user);
