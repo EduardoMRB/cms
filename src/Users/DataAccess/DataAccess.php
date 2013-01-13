@@ -37,14 +37,14 @@ class DataAccess
             return (int) $this->pdo->lastInsertId();
         }
 
-        throw new \RuntimeException ('Fail to insert data');
+        throw new \RuntimeException('Fail to insert data');
     }
 
     public function getById($id)
     {
-        if (!is_int($id)) {
+        if (!is_numeric($id)) {
             $message = print_r($id, true) . 'is an invalid id';
-            throw new \InvalidArgumentException ($message);
+            throw new \InvalidArgumentException($message);
         }
 
         $stm = $this->pdo->prepare('
@@ -68,7 +68,7 @@ class DataAccess
         }
 
         if (!$user instanceof User) {
-            throw new \RuntimeException ('Fail to retrieve user');
+            throw new \RuntimeException('Fail to retrieve user');
         }
 
         return $user;
@@ -91,6 +91,6 @@ class DataAccess
             return $stm->fetchAll();
         }
 
-        throw new \RuntimeException ('Fail to retrieve users');
+        throw new \RuntimeException('Fail to retrieve users');
     }
 }
