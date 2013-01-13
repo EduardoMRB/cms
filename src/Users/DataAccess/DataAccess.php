@@ -42,7 +42,7 @@ class DataAccess
 
     public function getById($id)
     {
-        if (!is_int($id)) {
+        if (!is_numeric($id)) {
             $message = print_r($id, true) . 'is an invalid id';
             throw new \InvalidArgumentException($message);
         }
