@@ -1,4 +1,5 @@
 {
+    "name": "eduardomrb/cms",
     "require": {
         "Respect/Validation": "dev-develop",
         "Respect/Rest": "dev-develop",
